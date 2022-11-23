@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Art Space</string>
+    <string name="art_1">La Gioconda</string>
+    <string name="art_1_description">Leonardo Davincci(1976)</string>
+    <string name="art_2">Autorotate</string>
+    <string name="art_2_description">Vicent Van Gogh(1756)</string>
+    <string name="art_3">Noche estrellada</string>
+    <string name="art_3_description">Vicent Van Gogh(1756)</string>
+
+</resources>
