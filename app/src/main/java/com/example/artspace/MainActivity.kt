@@ -59,30 +59,30 @@ fun ArtSpaceApp() {
                 ArtSpaceImageWithText(
                     name = R.string.art_1,
                     description = R.string.art_1_description,
-                    image = R.drawable.art_1)
-
-                // Fun buttons
+                    image = R.drawable.art_1,
+                    nextImage = { imageResult = 2},
+                    previousImage = {imageResult = 3}
+                )
             }
 
             2 -> {
                 ArtSpaceImageWithText(
                     name = R.string.art_2,
                     description = R.string.art_2_description,
-                    image = R.drawable.art_2)
+                    image = R.drawable.art_2,
+                    nextImage = { imageResult = 3},
+                    previousImage = { imageResult = 1}
+                )
             }
 
             3 -> {
                 ArtSpaceImageWithText(
                     name = R.string.art_3,
                     description = R.string.art_3_description,
-                    image = R.drawable.art_3_)
-            }
-
-            else -> Column(
-                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text(text = "Lo siento, no hay mas fotos.", fontSize = 25.sp, fontWeight = FontWeight.Bold)
+                    image = R.drawable.art_3_,
+                    nextImage = { imageResult = 1},
+                    previousImage = { imageResult = 2}
+                )
             }
         }
     }
@@ -94,6 +94,8 @@ fun ArtSpaceImageWithText(
     name: Int,
     description: Int,
     image: Int,
+    nextImage: () -> Unit,
+    previousImage: () -> Unit,
     modifier: Modifier = Modifier) {
 
     Column(
@@ -111,13 +113,15 @@ fun ArtSpaceImageWithText(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-    
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = "Previous")
-        }
-        
-        Button(onClick = { }) {
-            Text(text = "Next")
+
+        Row() {
+            Button(onClick =  nextImage ) {
+                Text(text = "Previous")
+            }   
+            Spacer(modifier = Modifier.width(50.dp))
+            Button(onClick =  previousImage ) {
+                Text(text = "Next")
+            }
         }
         }
     }
